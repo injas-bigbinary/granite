@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -64,3 +66,13 @@ gem "webpacker", "~> 5.4"
 gem "responders", "~> 3.1"
 
 gem "react-rails", "~> 2.6"
+
+group :development, :test do
+
+  # previous gems under this group as it was
+  # For code formatting and linting
+  gem "rubocop", require: false
+
+  gem "rubocop-rails", require: false
+
+end

@@ -14,6 +14,48 @@
     "tailwindcss": "1.9.6"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.21.3",
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-cypress": "^2.13.2",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jam3": "^0.2.3",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.1",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.2.7",
     "webpack-dev-server": "3.11.2"
+  },
+  "lint-staged": {
+    "app/**/*.{js,jsx,json}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "{package.json,.eslintrc.js,.prettierrc.js}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    ".eslint-rules/**/*": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "./**/*.rb": [
+      "bundle exec rubocop -a --force-exclusion"
+    ],
+    "{Gemfile,Rakefile,config.ru}": [
+      "bundle exec rubocop -a --force-exclusion"
+    ],
+    "app/views/**/*.html.erb": [
+      "bundle exec erblint --lint-all --format compact -a"
+    ]
+  },
+  "scripts": {
+    "prepare": "husky install"
   }
 }
