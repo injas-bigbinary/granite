@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   respond_to :html, :xml, :json
 
   def index
-    @tasks = Task.all
-    end
+    tasks = Task.all
+    render status: :ok, json: { tasks: }
+  end
 end
