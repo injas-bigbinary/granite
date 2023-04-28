@@ -71,8 +71,8 @@ group :development, :test do
 
   # previous gems under this group as it was
   # For code formatting and linting
+  gem "erb_lint", require: false
   gem "rubocop", require: false
-
   gem "rubocop-rails", require: false
 
 end
