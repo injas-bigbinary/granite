@@ -62,10 +62,10 @@ class ApplicationController < ActionController::Base
   end
 
   def render_notice(message, status = :ok, context = {})
-    render :status, json: { notice: message }.merge(context)
+    render status:, json: { notice: message }.merge(context)
   end
 
   def render_json(json = {}, status = :ok)
-    render :status, :json
+    render status:, json:
   end
 end
