@@ -22,6 +22,13 @@ const TableRow = ({ data, destroyTask, showTask }) => (
           </a>
         </td>
         <td
+          className="whitespace-no-wrap px-6 py-4 text-sm
+
+            font-medium leading-5 text-gray-900"
+        >
+          {rowData.assigned_user?.name}
+        </td>
+        <td
           className="cursor-pointer px-6 py-4 text-right
 
             text-sm font-medium leading-5"
