@@ -4,7 +4,14 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user_using_x_auth_token
   protect_from_forgery
 
+  include Pundit::Authorization
+
   rescue_from StandardError, with: :handle_api_exception
+  rescue_from Pundit::NotAuthorizedError, with: :handle_authorization_error
+
+  def handle_authorization_error
+    render_error(t("authorization.denied"), :forbidden)
+  end
 
   def handle_api_exception(exception)
     case exception
