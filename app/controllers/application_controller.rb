@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
       is_having_record = error.methods.include? "record"
       error_message = is_having_record ? message.record.errors_to_sentence : error.message
     end
-    render :status, json: { error: error_message }.merge(context)
+    render status:, json: { error: error_message }.merge(context)
   end
 
   def render_notice(message, status = :ok, context = {})
