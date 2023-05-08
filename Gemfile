@@ -88,3 +88,5 @@ end
 gem "simplecov", require: false, group: :test
 
 gem "pundit", "~> 2.3"
+
+gem "minitest-bisect", "~> 1.6"
