@@ -23,9 +23,8 @@ const TableRow = ({
           <td className="text-center">
             <input
               checked={isCompleted}
+              className="form-checkbox rounded focus:ring-bb-purple ml-6 h-4 w-4 cursor-pointer border-gray-300 text-bb-purple"
               type="checkbox"
-              className="rounded focus:ring-bb-purple ml-6 h-4 w-4
-                  cursor-pointer border-gray-300 text-bb-purple"
               onChange={() =>
                 handleProgressToggle({
                   slug: rowData.slug,
@@ -36,8 +35,7 @@ const TableRow = ({
           </td>
           <td
             className={classnames(
-              "block w-64 px-6 py-4 text-sm font-medium leading-8",
-              "text - bb - purple truncate capitalize",
+              "block w-64 px-6 py-4 text-sm font-medium capitalize leading-8 text-bb-purple ",
               {
                 "cursor-pointer": !isCompleted,
                 "text-opacity-50": isCompleted,
@@ -46,16 +44,16 @@ const TableRow = ({
             onClick={() => !isCompleted && showTask(rowData.slug)}
           >
             <Tooltip content={rowData.title} delay={200} direction="top">
-              <div className="truncate max-w-64 ">{rowData.title}</div>
+              <div className="max-w-64 truncate ">{rowData.title}</div>
             </Tooltip>
           </td>
           {!isCompleted && (
             <>
-              <td
-                className="whitespace-no-wrap px-6 py-4 text-sm font-medium
-                            leading-5 text-bb-gray-600"
-              >
+              <td className="whitespace-no-wrap px-6 py-4 text-sm font-medium leading-5 text-bb-gray-600">
                 {rowData.assigned_user.name}
+              </td>
+              <td className="whitespace-no-wrap px-6 py-4 text-center text-sm font-medium leading-5 text-bb-gray-600">
+                {rowData.comments_count}
               </td>
               <td className="cursor-pointer py-4 pl-6 text-center">
                 <i
@@ -80,9 +78,7 @@ const TableRow = ({
               <td style={{ width: "164px" }} />
               <td className="cursor-pointer py-4 pl-6 text-center">
                 <i
-                  className="transition ri-delete-bin-5-line text-center
-                  text-2xl text-bb-border duration-300
-                  ease-in-out hover:text-bb-red"
+                  className="ri-delete-bin-5-line transition text-center text-2xl text-bb-border duration-300 ease-in-out hover:text-bb-red"
                   onClick={() => destroyTask(rowData.slug)}
                 />
               </td>

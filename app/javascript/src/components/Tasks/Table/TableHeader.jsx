@@ -40,6 +40,11 @@ const TableHeader = ({ type }) => {
           </>
         )}
         {type === "pending" && (
+          <th className="bg-gray-50 py-3 text-center text-sm font-bold leading-4 tracking-wider text-bb-gray-600 text-opacity-50">
+            Comments
+          </th>
+        )}
+        {type === "pending" && (
           <th
             className="bg-gray-50 py-3 pl-6 text-center text-sm
           font-bold leading-4 tracking-wider
