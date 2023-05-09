@@ -32,8 +32,8 @@ class TasksControllerTest < ActionDispatch::IntegrationTest
       params: { task: { title: "Learn Ruby", task_owner_id: @creator.id, assigned_user_id: @assignee.id } },
       headers: @creator_headers
     assert_response :success
-    # response_json = response.parsed_body
-    # assert_equal t("successfully_created", entity: "Task"), response_json["notice"]
+    response_json = response.parsed_body
+    assert_equal t("successfully_created", entity: "Task"), response_json["notice"]
   end
 
   def test_shouldnt_create_task_without_title
